@@ -77,7 +77,7 @@ const AddUser = () => {
               onChange={e => onInputChange(e)}
             />
           </div>
-          <button className="btn btn-primary btn-block">Add User</button>
+          <button className="btn btn-primary btn-block">Add Student</button>
         </form>
       </div>
     </div>
