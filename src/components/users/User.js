@@ -15,7 +15,8 @@ const User = () => {
     loadUser();
   }, []);
   const loadUser = async () => {
-    const res = await axios.get(`http://localhost:3003/users/${id}`);
+    const res = await axios.get(`http://localhost:9999/api/users/${id}`);
+    // const res = await axios.get("http://localhost:9999/api/user")
     setUser(res.data);
   };
   return (
@@ -23,7 +24,7 @@ const User = () => {
       <Link className="btn btn-primary" to="/">
         back to Home
       </Link>
-      <h1 className="display-4">User Id: {id}</h1>
+      {/* <h1 className="display-4">User Id: {id}</h1> */}
       <hr />
       <ul className="list-group w-50">
         <li className="list-group-item">name: {user.name}</li>

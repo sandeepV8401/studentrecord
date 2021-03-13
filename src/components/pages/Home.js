@@ -7,19 +7,19 @@ function Home() {
    const[users, setUsers] = useState([]);
 
     useEffect(()=>{
-        console.log("This is use effect");
+       // console.log("This is use effect");
         loadUsers();
     },[]);
 
     const loadUsers = async  ()=>{
-        const result = await axios.get("http://localhost:3003/users");
+        const result = await axios.get("http://localhost:9999/api/users");
         console.log(result.data);
         setUsers(result.data);
 
     }
 
     const deleteUser = async id => {
-        await axios.delete(`http://localhost:3003/users/${id}`);
+        await axios.delete(`http://localhost:9999/api/users/${id}`);
         loadUsers();
     }
   return (
@@ -44,18 +44,18 @@ function Home() {
               <td>{user.course}</td>
               <td>{user.email}</td>
               <td>
-                <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                <Link class="btn btn-primary mr-2" to={`/users/${user._id}`}>
                   View
                 </Link>
                 <Link
                   class="btn btn-outline-primary mr-2"
-                  to={`/users/edit/${user.id}`}
+                  to={`/users/edit/${user._id}`}
                 >
                   Edit
                 </Link>
                 <Link
                   class="btn btn-danger"
-                  onClick={() => deleteUser(user.id)}
+                  onClick={() => deleteUser(user._id)}
                 >
                   Delete
                 </Link>
